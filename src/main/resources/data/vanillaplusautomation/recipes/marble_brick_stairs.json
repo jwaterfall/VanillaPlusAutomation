@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "vanillaplusautomation:marble_bricks"
+        }
+    },
+    "result": {
+        "item": "vanillaplusautomation:marble_brick_stairs",
+        "count": 4
+    }
+}

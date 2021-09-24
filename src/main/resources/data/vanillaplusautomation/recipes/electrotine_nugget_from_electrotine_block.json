@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "vanillaplusautomation:electrotine_ingot"
+        }
+    ],
+    "result": {
+        "item": "vanillaplusautomation:electrotine_nugget",
+        "count": 9
+    }
+}

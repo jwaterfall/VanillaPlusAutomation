@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+      "item": "vanillaplusautomation:marble"
+    },
+    "result": "vanillaplusautomation:marble_brick_slab",
+    "count": 2
+}

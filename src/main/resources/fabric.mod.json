@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "vanillaplusautomation",
+  "version": "${version}",
+
+  "name": "Vanilla Plus Automation",
+  "description": "This is a mod focussed on expanding on the automation that is possible in vanilla minecraft!",
+  "authors": [
+    "Virion_69"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.vanillaplusautomation.VanillaPlusAutomation"
+    ],
+    "client": [
+      "net.vanillaplusautomation.VanillaPlusAutomationClient"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

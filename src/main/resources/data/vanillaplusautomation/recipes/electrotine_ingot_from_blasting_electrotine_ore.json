@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "vanillaplusautomation:electrotine_ore"
+    },
+    "result": "vanillaplusautomation:electrotine_ingot",
+    "experience": 0.7,
+    "cookingtime": 100
+}

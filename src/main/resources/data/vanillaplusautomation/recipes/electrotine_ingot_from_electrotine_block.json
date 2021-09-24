@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "vanillaplusautomation:electrotine_block"
+        }
+    ],
+    "result": {
+        "item": "vanillaplusautomation:electrotine_ingot",
+        "count": 9
+    }
+}

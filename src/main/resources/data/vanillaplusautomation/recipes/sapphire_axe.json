@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "#|",
+        " |"
+    ],
+    "key": {
+        "#": {
+            "item": "vanillaplusautomation:sapphire"
+        },
+        "|": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "vanillaplusautomation:sapphire_axe"
+    }
+}

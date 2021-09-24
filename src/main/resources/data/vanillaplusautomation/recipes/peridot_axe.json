@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "#|",
+        " |"
+    ],
+    "key": {
+        "#": {
+            "item": "vanillaplusautomation:peridot"
+        },
+        "|": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "vanillaplusautomation:peridot_axe"
+    }
+}

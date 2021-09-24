@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "vanillaplusautomation:block/marble_brick_slab"
+    },
+    "type=double": {
+      "model": "vanillaplusautomation:block/marble_bricks"
+    },
+    "type=top": {
+      "model": "vanillaplusautomation:block/marble_brick_slab_top"
+    }
+  }
+}
