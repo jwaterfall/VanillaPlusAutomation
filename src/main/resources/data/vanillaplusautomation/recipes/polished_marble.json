@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "vanillaplusautomation:marble"
+        }
+    },
+    "result": {
+        "item": "vanillaplusautomation:polished_marble",
+        "count": 9
+    }
+}

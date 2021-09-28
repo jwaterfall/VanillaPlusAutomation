@@ -19,47 +19,47 @@ import net.vanillaplusautomation.block.ModBlocks;
 public class ModOres {
         public static final ConfiguredFeature<?, ?> BASALT_OVERWORLD = registerOreOverworld("basalt_overworld",
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                                        ModBlocks.BASALT.getDefaultState(), 32)) // Vein size
+                                        ModBlocks.BASALT.getDefaultState(), 64)) // Vein size
                                         .range(new RangeDecoratorConfig(UniformHeightProvider
                                                         .create(YOffset.aboveBottom(0), YOffset.fixed(64))))
-                                        .spreadHorizontally().repeat(5));
+                                        .spreadHorizontally().repeat(4));
 
         public static final ConfiguredFeature<?, ?> MARBLE_OVERWORLD = registerOreOverworld("marble_overworld",
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                                        ModBlocks.MARBLE.getDefaultState(), 32)) // Vein size
+                                        ModBlocks.MARBLE.getDefaultState(), 64)) // Vein size
                                         .range(new RangeDecoratorConfig(UniformHeightProvider
                                                         .create(YOffset.aboveBottom(0), YOffset.fixed(64))))
-                                        .spreadHorizontally().repeat(5));
+                                        .spreadHorizontally().repeat(4));
 
         public static final ConfiguredFeature<?, ?> RUBY_ORE_OVERWORLD = registerOreOverworld("ruby_ore_overworld",
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                                         ModBlocks.RUBY_ORE.getDefaultState(), 9)) // Vein size
-                                        .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                        .range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(0),
+                                                        YOffset.fixed(32))))
                                         .spreadHorizontally().repeat(10));
 
         public static final ConfiguredFeature<?, ?> SAPPHIRE_ORE_OVERWORLD = registerOreOverworld(
                         "sapphire_ore_overworld",
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                                         ModBlocks.SAPPHIRE_ORE.getDefaultState(), 9)) // Vein size
-                                        .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                        .range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(0),
+                                                        YOffset.fixed(32))))
                                         .spreadHorizontally().repeat(10));
 
         public static final ConfiguredFeature<?, ?> PERIDOT_ORE_OVERWORLD = registerOreOverworld(
                         "peridot_ore_overworld",
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                                         ModBlocks.PERIDOT_ORE.getDefaultState(), 9)) // Vein size
-                                        .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                        .range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(0),
+                                                        YOffset.fixed(32))))
                                         .spreadHorizontally().repeat(10));
 
         public static final ConfiguredFeature<?, ?> ELECTROTINE_ORE_OVERWORLD = registerOreOverworld(
                         "electrotine_ore_overworld",
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                                         ModBlocks.ELECTROTINE_ORE.getDefaultState(), 9)) // Vein size
-                                        .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                        .range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(0),
+                                                        YOffset.fixed(32))))
                                         .spreadHorizontally().repeat(20));
 
         public static final ConfiguredFeature<?, ?> DEEPSLATE_RUBY_ORE_OVERWORLD = registerOreOverworld(
@@ -67,7 +67,7 @@ public class ModOres {
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.DEEPSLATE_ORE_REPLACEABLES,
                                         ModBlocks.DEEPSLATE_RUBY_ORE.getDefaultState(), 9)) // Vein size
                                         .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(0))))
                                         .spreadHorizontally().repeat(10));
 
         public static final ConfiguredFeature<?, ?> DEEPSLATE_SAPPHIRE_ORE_OVERWORLD = registerOreOverworld(
@@ -75,7 +75,7 @@ public class ModOres {
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.DEEPSLATE_ORE_REPLACEABLES,
                                         ModBlocks.DEEPSLATE_SAPPHIRE_ORE.getDefaultState(), 9)) // Vein size
                                         .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(0))))
                                         .spreadHorizontally().repeat(10));
 
         public static final ConfiguredFeature<?, ?> DEEPSLATE_PERIDOT_ORE_OVERWORLD = registerOreOverworld(
@@ -83,7 +83,7 @@ public class ModOres {
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.DEEPSLATE_ORE_REPLACEABLES,
                                         ModBlocks.DEEPSLATE_PERIDOT_ORE.getDefaultState(), 9)) // Vein size
                                         .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(0))))
                                         .spreadHorizontally().repeat(10));
 
         public static final ConfiguredFeature<?, ?> DEEPSLATE_ELECTROTINE_ORE_OVERWORLD = registerOreOverworld(
@@ -91,7 +91,7 @@ public class ModOres {
                         Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.DEEPSLATE_ORE_REPLACEABLES,
                                         ModBlocks.DEEPSLATE_ELECTROTINE_ORE.getDefaultState(), 9)) // Vein size
                                         .range(new RangeDecoratorConfig(UniformHeightProvider
-                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(32))))
+                                                        .create(YOffset.aboveBottom(0), YOffset.fixed(0))))
                                         .spreadHorizontally().repeat(20));
 
         private static ConfiguredFeature<?, ?> registerOreOverworld(String name,

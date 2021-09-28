@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "_}_",
+        "}o}",
+        "_]_"
+    ],
+    "key": {
+        "_": {
+            "item": "vanillaplusautomation:electrotine_ingot"
+        },
+        "]": {
+            "item": "minecraft:piston"
+        },
+        "}": {
+            "item": "minecraft:redstone"
+        },
+        "o": {
+            "item": "minecraft:dispenser"
+        }
+    },
+    "result": {
+        "item": "vanillaplusautomation:block_placer"
+    }
+}

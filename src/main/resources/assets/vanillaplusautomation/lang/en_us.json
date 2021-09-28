@@ -47,13 +47,19 @@
     "block.vanillaplusautomation.peridot_block": "Peridot Block",
     "block.vanillaplusautomation.electrotine_block": "Electrotine Block",
     "block.vanillaplusautomation.basalt": "Basalt",
+    "block.vanillaplusautomation.polished_basalt": "Polished Basalt",
+    "block.vanillaplusautomation.basalt_pillar": "Basalt Pillar",
     "block.vanillaplusautomation.basalt_bricks": "Basalt Bricks",
     "block.vanillaplusautomation.basalt_brick_stairs": "Basalt Brick Stairs",
     "block.vanillaplusautomation.basalt_brick_slab": "Basalt Brick Slab",
     "block.vanillaplusautomation.basalt_brick_wall": "Basalt Brick Wall",
     "block.vanillaplusautomation.marble": "Marble",
+    "block.vanillaplusautomation.polished_marble": "Polished Marble",
+    "block.vanillaplusautomation.marble_pillar": "Marble Pillar",
     "block.vanillaplusautomation.marble_bricks": "Marble Bricks",
     "block.vanillaplusautomation.marble_brick_stairs": "Marble Brick Stairs",
     "block.vanillaplusautomation.marble_brick_slab": "Marble Brick Slab",
-    "block.vanillaplusautomation.marble_brick_wall": "Marble Brick Wall"
+    "block.vanillaplusautomation.marble_brick_wall": "Marble Brick Wall",
+    "block.vanillaplusautomation.block_placer": "Block Placer",
+    "container.block_placer": "Block Placer"
 }

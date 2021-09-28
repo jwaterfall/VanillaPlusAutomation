@@ -7,11 +7,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.Material;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.vanillaplusautomation.VanillaPlusAutomation;
+import net.vanillaplusautomation.block.custom.BlockPlacer;
 import net.vanillaplusautomation.block.custom.CustomStairsBlock;
 import net.vanillaplusautomation.item.ModItemGroup;
 
@@ -58,6 +60,12 @@ public class ModBlocks {
         public static final Block BASALT = registerBlock("basalt", new Block(FabricBlockSettings.of(Material.STONE)
                         .strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
 
+        public static final Block POLISHED_BASALT = registerBlock("polished_basalt", new PillarBlock(FabricBlockSettings
+                .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
+
+        public static final Block BASALT_PILLAR = registerBlock("basalt_pillar", new PillarBlock(FabricBlockSettings
+                .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
+
         public static final Block BASALT_BRICKS = registerBlock("basalt_bricks", new Block(FabricBlockSettings
                         .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
 
@@ -77,6 +85,12 @@ public class ModBlocks {
         public static final Block MARBLE = registerBlock("marble", new Block(FabricBlockSettings.of(Material.STONE)
                         .strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
 
+        public static final Block POLISHED_MARBLE = registerBlock("polished_marble", new PillarBlock(FabricBlockSettings
+                .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
+
+        public static final Block MARBLE_PILLAR = registerBlock("marble_pillar", new PillarBlock(FabricBlockSettings
+                        .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
+
         public static final Block MARBLE_BRICKS = registerBlock("marble_bricks", new Block(FabricBlockSettings
                         .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
 
@@ -92,6 +106,9 @@ public class ModBlocks {
         public static final Block MARBLE_BRICK_WALL = registerBlock("marble_brick_wall",
                         new WallBlock(FabricBlockSettings.of(Material.STONE).strength(1.5f)
                                         .breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
+
+        public static final Block BLOCK_PLACER = registerBlock("block_placer", new BlockPlacer(FabricBlockSettings
+                        .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
 
         private static Block registerBlock(String name, Block block) {
                 registerBlockItem(name, block);
