@@ -13,7 +13,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.vanillaplusautomation.VanillaPlusAutomation;
-import net.vanillaplusautomation.block.custom.BlockPlacer;
 import net.vanillaplusautomation.block.custom.CustomStairsBlock;
 import net.vanillaplusautomation.item.ModItemGroup;
 
@@ -106,9 +105,6 @@ public class ModBlocks {
         public static final Block MARBLE_BRICK_WALL = registerBlock("marble_brick_wall",
                         new WallBlock(FabricBlockSettings.of(Material.STONE).strength(1.5f)
                                         .breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
-
-        public static final Block BLOCK_PLACER = registerBlock("block_placer", new BlockPlacer(FabricBlockSettings
-                        .of(Material.STONE).strength(1.5f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool()));
 
         private static Block registerBlock(String name, Block block) {
                 registerBlockItem(name, block);

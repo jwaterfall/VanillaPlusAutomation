@@ -22,7 +22,7 @@
       "net.vanillaplusautomation.VanillaPlusAutomation"
     ],
     "client": [
-      "net.vanillaplusautomation.VanillaPlusAutomationClient"
+      "net.vanillaplusautomation.VanillaPlusAutomation"
     ]
   },
   "mixins": [

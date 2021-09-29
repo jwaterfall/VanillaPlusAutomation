@@ -1,7 +1,7 @@
 {
     "parent": "minecraft:block/orientable_vertical",
     "textures": {
-      "front": "vanillaplusautomation:block/block_placer_front_vertical",
+      "front": "vanillaplusautomation:block/block_breaker_front_vertical",
       "side": "vanillaplusautomation:block/machine"
     }
   }

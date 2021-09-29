@@ -60,6 +60,8 @@
     "block.vanillaplusautomation.marble_brick_stairs": "Marble Brick Stairs",
     "block.vanillaplusautomation.marble_brick_slab": "Marble Brick Slab",
     "block.vanillaplusautomation.marble_brick_wall": "Marble Brick Wall",
+    "block.vanillaplusautomation.block_breaker": "Block Breaker",
     "block.vanillaplusautomation.block_placer": "Block Placer",
+    "container.block_breaker": "Block Breaker",
     "container.block_placer": "Block Placer"
 }

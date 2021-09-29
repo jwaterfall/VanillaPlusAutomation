@@ -10,6 +10,8 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -37,14 +39,19 @@ public class MachineBlock extends BlockWithEntity {
         this.blockEntitySupplier = blockEntitySupplier;
     }
 
+    public Direction getFacing(BlockState state) {
+
+        return state.get(FACING);
+    }
+
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
             BlockHitResult hit) {
         if (world.isClient) {
             return ActionResult.SUCCESS;
         } else {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof BlockBreakerBlockEntity) {
-                player.openHandledScreen((BlockBreakerBlockEntity) blockEntity);
+            if (blockEntity instanceof MachineBlockEntity) {
+                player.openHandledScreen((MachineBlockEntity) blockEntity);
             }
 
             return ActionResult.CONSUME;
@@ -64,8 +71,20 @@ public class MachineBlock extends BlockWithEntity {
 
     }
 
-    public BlockEntity createBlockEntity() {
-        return blockEntitySupplier.create(machineType);
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (blockEntity instanceof MachineBlockEntity) {
+            boolean success = ((MachineBlockEntity) blockEntity).performOperation(state, world, pos, getFacing(state), random);
+            if (success) {
+                world.playSound(null, pos, SoundEvents.BLOCK_DISPENSER_DISPENSE, SoundCategory.BLOCKS, 1f, 1f);
+            } else {
+                world.playSound(null, pos, SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.BLOCKS, 1f, 1.2f);
+            }
+        }
+    }
+
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return blockEntitySupplier.create(machineType, pos, state);
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -75,8 +94,8 @@ public class MachineBlock extends BlockWithEntity {
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         if (itemStack.hasCustomName()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof BlockBreakerBlockEntity) {
-                ((BlockBreakerBlockEntity) blockEntity).setCustomName(itemStack.getName());
+            if (blockEntity instanceof MachineBlockEntity) {
+                ((MachineBlockEntity) blockEntity).setCustomName(itemStack.getName());
             }
         }
 
@@ -85,21 +104,13 @@ public class MachineBlock extends BlockWithEntity {
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!state.isOf(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof BlockBreakerBlockEntity) {
-                ItemScatterer.spawn(world, (BlockPos) pos, (Inventory) ((BlockBreakerBlockEntity) blockEntity));
+            if (blockEntity instanceof MachineBlockEntity) {
+                ItemScatterer.spawn(world, (BlockPos) pos, (Inventory) ((MachineBlockEntity) blockEntity));
                 world.updateComparators(pos, this);
             }
 
             super.onStateReplaced(state, world, pos, newState, moved);
         }
-    }
-
-    public static Position getOutputLocation(BlockPointer pointer) {
-        Direction direction = (Direction) pointer.getBlockState().get(FACING);
-        double d = pointer.getX() + 0.7D * (double) direction.getOffsetX();
-        double e = pointer.getY() + 0.7D * (double) direction.getOffsetY();
-        double f = pointer.getZ() + 0.7D * (double) direction.getOffsetZ();
-        return new PositionImpl(d, e, f);
     }
 
     public boolean hasComparatorOutput(BlockState state) {

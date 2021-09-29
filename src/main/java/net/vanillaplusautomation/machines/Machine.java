@@ -3,28 +3,30 @@ package net.vanillaplusautomation.machines;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.vanillaplusautomation.VanillaPlusAutomation;
 import net.vanillaplusautomation.item.ModItemGroup;
 import net.vanillaplusautomation.machines.blockbreaker.BlockBreakerBlockEntity;
+import net.vanillaplusautomation.machines.blockplacer.BlockPlacerBlockEntity;
 
 import java.util.Locale;
-import java.util.function.Supplier;
 
 public enum Machine {
-    BLOCK_BREAKER(MachineBlock::new, BlockBreakerBlockEntity::new);
+    BLOCK_BREAKER(new TranslatableText("container.block_breaker"),MachineBlock::new, BlockBreakerBlockEntity::new),
+    BLOCK_PLACER(new TranslatableText("container.block_placer"),MachineBlock::new, BlockPlacerBlockEntity::new);
 
-    private MachineBlock block;
+    private final MachineBlock block;
     private BlockEntityType<?> blockEntityType;
+    private final Text name;
 
-    private Machine(final BlockSupplier blockSupplier, final BlockEntitySupplier blockEntitySupplier){
+    private Machine(Text name, final BlockSupplier blockSupplier, final BlockEntitySupplier blockEntitySupplier){
         block = blockSupplier.create(this, blockEntitySupplier);
+        this.name = name;
     }
 
     public Block getBlock() {
@@ -39,12 +41,10 @@ public enum Machine {
         blockEntityType = newEntityType;
     }
 
+    public Text getName() {return name;};
+
     public BlockEntityType<?> getEntityType() {
         return blockEntityType;
-    }
-
-    public Supplier<? extends BlockEntity> getEntitySupplier() {
-        return () -> block.createBlockEntity();
     }
 
     public Identifier buildIdentifier() {
@@ -59,7 +59,7 @@ public enum Machine {
         Registry.register(Registry.BLOCK, buildIdentifier(), block);
 
         final BlockEntityType<?> entityType = FabricBlockEntityTypeBuilder
-                .create(getEntitySupplier(), block)
+                .create(block::createBlockEntity, block)
                 .build(null);
 
         Registry.register(
