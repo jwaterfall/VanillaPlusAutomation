@@ -1,7 +1,5 @@
 package net.vanillaplusautomation.item.custom;
 
-import java.util.Objects;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,6 +9,8 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.vanillaplusautomation.block.ModBlocks;
+
+import java.util.Objects;
 
 public class DowsingRodItem extends Item {
     public DowsingRodItem(Settings settings) {
@@ -24,7 +24,7 @@ public class DowsingRodItem extends Item {
             PlayerEntity player = Objects.requireNonNull(context.getPlayer());
             boolean foundBlock = false;
 
-            for (int i = 0; i <= positionClicked.getY(); i++) {
+            for (int i = -64; i <= positionClicked.getY(); i++) {
                 Block blockBelow = context.getWorld().getBlockState(positionClicked.down(i)).getBlock();
 
                 if (isValuableBlock(blockBelow)) {

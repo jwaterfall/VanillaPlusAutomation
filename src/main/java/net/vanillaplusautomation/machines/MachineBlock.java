@@ -18,7 +18,8 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -45,7 +46,7 @@ public class MachineBlock extends BlockWithEntity {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
-            BlockHitResult hit) {
+                              BlockHitResult hit) {
         if (world.isClient) {
             return ActionResult.SUCCESS;
         } else {
@@ -59,14 +60,14 @@ public class MachineBlock extends BlockWithEntity {
     }
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos,
-            boolean notify) {
+                               boolean notify) {
         boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
-        boolean bl2 = (Boolean) state.get(TRIGGERED);
+        boolean bl2 = state.get(TRIGGERED);
         if (bl && !bl2) {
-            world.getBlockTickScheduler().schedule(pos, this, 4);
-            world.setBlockState(pos, (BlockState) state.with(TRIGGERED, true), Block.NO_REDRAW);
+            world.createAndScheduleBlockTick(pos, this, 4);
+            world.setBlockState(pos, state.with(TRIGGERED, true), Block.NO_REDRAW);
         } else if (!bl && bl2) {
-            world.setBlockState(pos, (BlockState) state.with(TRIGGERED, false), Block.NO_REDRAW);
+            world.setBlockState(pos, state.with(TRIGGERED, false), Block.NO_REDRAW);
         }
 
     }

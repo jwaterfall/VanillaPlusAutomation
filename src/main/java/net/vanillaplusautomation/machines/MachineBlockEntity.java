@@ -1,9 +1,6 @@
 package net.vanillaplusautomation.machines;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -15,7 +12,6 @@ import net.minecraft.screen.Generic3x3ContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -28,7 +24,7 @@ public class MachineBlockEntity extends LootableContainerBlockEntity {
     private final Machine machineType;
 
     protected MachineBlockEntity(Machine machineType, BlockPos pos, BlockState state) {
-        super(machineType.getEntityType(),pos ,state);
+        super(machineType.getEntityType(), pos, state);
         this.inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
         this.machineType = machineType;
     }
@@ -44,7 +40,7 @@ public class MachineBlockEntity extends LootableContainerBlockEntity {
     public Boolean addItem(Item item) {
         for (int i = 0; i < this.inventory.size(); ++i) {
             ItemStack itemStack = this.inventory.get(i);
-            if(itemStack.isEmpty()) continue;
+            if (itemStack.isEmpty()) continue;
 
             int existingCount = itemStack.getCount();
             boolean isSameItem = itemStack.isOf(item);
@@ -95,13 +91,11 @@ public class MachineBlockEntity extends LootableContainerBlockEntity {
 
     }
 
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         if (!this.serializeLootTable(nbt)) {
             Inventories.writeNbt(nbt, this.inventory);
         }
-
-        return nbt;
     }
 
     protected DefaultedList<ItemStack> getInvStackList() {
