@@ -20,9 +20,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class MachineBlock extends BlockWithEntity {
     public static final DirectionProperty FACING;
@@ -45,8 +44,7 @@ public class MachineBlock extends BlockWithEntity {
         return state.get(FACING);
     }
 
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
-                              BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.isClient) {
             return ActionResult.SUCCESS;
         } else {
@@ -59,8 +57,8 @@ public class MachineBlock extends BlockWithEntity {
         }
     }
 
-    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos,
-                               boolean notify) {
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
         boolean bl2 = state.get(TRIGGERED);
         if (bl && !bl2) {
@@ -69,11 +67,12 @@ public class MachineBlock extends BlockWithEntity {
         } else if (!bl && bl2) {
             world.setBlockState(pos, state.with(TRIGGERED, false), Block.NO_REDRAW);
         }
-
     }
 
+    @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
+
         if (blockEntity instanceof MachineBlockEntity) {
             boolean success = ((MachineBlockEntity) blockEntity).performOperation(state, world, pos, getFacing(state), random);
             if (success) {

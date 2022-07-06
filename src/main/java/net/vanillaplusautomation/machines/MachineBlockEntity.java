@@ -15,11 +15,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class MachineBlockEntity extends LootableContainerBlockEntity {
-    private static final Random RANDOM = new Random();
     private DefaultedList<ItemStack> inventory;
     private final Machine machineType;
 
@@ -64,13 +62,13 @@ public class MachineBlockEntity extends LootableContainerBlockEntity {
         return false;
     }
 
-    public int getNonEmptySlot() {
+    public int getNonEmptySlot(Random random) {
         this.checkLootInteraction((PlayerEntity) null);
         int i = -1;
         int j = 1;
 
         for (int k = 0; k < this.inventory.size(); ++k) {
-            if (!((ItemStack) this.inventory.get(k)).isEmpty() && RANDOM.nextInt(j++) == 0) {
+            if (!((ItemStack) this.inventory.get(k)).isEmpty() && random.nextInt(j++) == 0) {
                 i = k;
             }
         }
