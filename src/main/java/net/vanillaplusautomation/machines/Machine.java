@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.vanillaplusautomation.VanillaPlusAutomation;
@@ -17,14 +16,14 @@ import net.vanillaplusautomation.machines.blockplacer.BlockPlacerBlockEntity;
 import java.util.Locale;
 
 public enum Machine {
-    BLOCK_BREAKER(new TranslatableText("container.block_breaker"),MachineBlock::new, BlockBreakerBlockEntity::new),
-    BLOCK_PLACER(new TranslatableText("container.block_placer"),MachineBlock::new, BlockPlacerBlockEntity::new);
+    BLOCK_BREAKER(Text.translatable("container.block_breaker"), MachineBlock::new, BlockBreakerBlockEntity::new),
+    BLOCK_PLACER(Text.translatable("container.block_placer"), MachineBlock::new, BlockPlacerBlockEntity::new);
 
     private final MachineBlock block;
     private BlockEntityType<?> blockEntityType;
     private final Text name;
 
-    private Machine(Text name, final BlockSupplier blockSupplier, final BlockEntitySupplier blockEntitySupplier){
+    private Machine(Text name, final BlockSupplier blockSupplier, final BlockEntitySupplier blockEntitySupplier) {
         block = blockSupplier.create(this, blockEntitySupplier);
         this.name = name;
     }
@@ -41,7 +40,11 @@ public enum Machine {
         blockEntityType = newEntityType;
     }
 
-    public Text getName() {return name;};
+    public Text getName() {
+        return name;
+    }
+
+    ;
 
     public BlockEntityType<?> getEntityType() {
         return blockEntityType;

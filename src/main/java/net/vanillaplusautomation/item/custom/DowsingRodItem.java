@@ -5,7 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.vanillaplusautomation.block.ModBlocks;
@@ -35,7 +35,7 @@ public class DowsingRodItem extends Item {
             }
 
             if (!foundBlock) {
-                player.sendMessage(new LiteralText("No valuables found below!"), false);
+                player.sendMessage(Text.literal("No valuables found below!"), false);
             }
         }
 
@@ -58,7 +58,7 @@ public class DowsingRodItem extends Item {
     }
 
     private void outputCoordinates(Block blockFound, BlockPos pos, PlayerEntity player) {
-        player.sendMessage(new LiteralText("Found " + blockFound.asItem().getName().getString() + " at(" + pos.getX()
+        player.sendMessage(Text.literal("Found " + blockFound.asItem().getName().getString() + " at(" + pos.getX()
                 + ", " + pos.getY() + ", " + pos.getZ() + ")"), false);
     }
 }
