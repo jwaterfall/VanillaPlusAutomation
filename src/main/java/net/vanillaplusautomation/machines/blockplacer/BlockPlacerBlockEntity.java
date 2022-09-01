@@ -8,10 +8,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.vanillaplusautomation.machines.Machine;
 import net.vanillaplusautomation.machines.MachineBlockEntity;
-
-import java.util.Random;
 
 public class BlockPlacerBlockEntity extends MachineBlockEntity {
     public BlockPlacerBlockEntity(final Machine machineType, BlockPos pos, BlockState state) {
@@ -22,7 +21,7 @@ public class BlockPlacerBlockEntity extends MachineBlockEntity {
     public boolean performOperation(BlockState state, ServerWorld world, BlockPos pos, Direction facing, Random random) {
         BlockPos targetBlockPos = pos.offset(facing);
         Direction side = world.isAir(targetBlockPos.down()) ? facing : Direction.UP;
-        int slot = getNonEmptySlot();
+        int slot = getNonEmptySlot(world.random);
 
         if (slot < 0) {
             return false;
