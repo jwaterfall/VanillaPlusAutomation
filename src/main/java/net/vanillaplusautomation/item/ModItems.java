@@ -140,6 +140,6 @@ public class ModItems {
         }
 
         public static void registerModItems() {
-                System.out.println("Registering mod items for " + VanillaPlusAutomation.MOD_ID);
+                VanillaPlusAutomation.LOGGER.debug("Registering mod items for " + VanillaPlusAutomation.MOD_ID);
         }
 }

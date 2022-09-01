@@ -117,6 +117,6 @@ public class ModBlocks {
         }
 
         public static void registerModBlocks() {
-                System.out.println("Registering blocks items for " + VanillaPlusAutomation.MOD_ID);
+                VanillaPlusAutomation.LOGGER.debug("Registering blocks items for " + VanillaPlusAutomation.MOD_ID);
         }
 }
