@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "vanillaplusautomation:ruby_ore",
+    "vanillaplusautomation:sapphire_ore",
+    "vanillaplusautomation:peridot_ore",
+    "vanillaplusautomation:electrotine_ore",
+    "vanillaplusautomation:deepslate_ruby_ore",
+    "vanillaplusautomation:deepslate_sapphire_ore",
+    "vanillaplusautomation:deepslate_peridot_ore",
+    "vanillaplusautomation:deepslate_electrotine_ore",
+    "vanillaplusautomation:ruby_block",
+    "vanillaplusautomation:sapphire_block",
+    "vanillaplusautomation:peridot_block",
+    "vanillaplusautomation:electrotine_block",
+    "vanillaplusautomation:basalt",
+    "vanillaplusautomation:polished_basalt",
+    "vanillaplusautomation:basalt_pillar",
+    "vanillaplusautomation:basalt_bricks",
+    "vanillaplusautomation:basalt_brick_stairs",
+    "vanillaplusautomation:basalt_brick_slab",
+    "vanillaplusautomation:basalt_brick_wall",
+    "vanillaplusautomation:marble",
+    "vanillaplusautomation:polished_marble",
+    "vanillaplusautomation:marble_pillar",
+    "vanillaplusautomation:marble_bricks",
+    "vanillaplusautomation:marble_brick_stairs",
+    "vanillaplusautomation:marble_brick_slab",
+    "vanillaplusautomation:marble_brick_wall"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "vanillaplusautomation:ruby_ore",
+    "vanillaplusautomation:sapphire_ore",
+    "vanillaplusautomation:peridot_ore",
+    "vanillaplusautomation:deepslate_ruby_ore",
+    "vanillaplusautomation:deepslate_sapphire_ore",
+    "vanillaplusautomation:deepslate_peridot_ore",
+    "vanillaplusautomation:ruby_block",
+    "vanillaplusautomation:sapphire_block",
+    "vanillaplusautomation:peridot_block"
+  ]
+}

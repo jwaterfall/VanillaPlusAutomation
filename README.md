@@ -12,9 +12,3 @@
 1. Install fabric 1.17.1
 
 2. Drag the jar file into your mods folder
-
-## Changelog
-
-### v1.0.0
-
-Initial release

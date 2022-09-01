@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "vanillaplusautomation:electrotine_ore",
+    "vanillaplusautomation:deepslate_electrotine_ore",
+    "vanillaplusautomation:electrotine_block"
+  ]
+}

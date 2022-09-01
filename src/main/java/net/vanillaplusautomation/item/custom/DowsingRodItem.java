@@ -1,7 +1,5 @@
 package net.vanillaplusautomation.item.custom;
 
-import java.util.Objects;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,6 +9,8 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.vanillaplusautomation.block.ModBlocks;
+
+import java.util.Objects;
 
 public class DowsingRodItem extends Item {
     public DowsingRodItem(Settings settings) {
@@ -24,7 +24,7 @@ public class DowsingRodItem extends Item {
             PlayerEntity player = Objects.requireNonNull(context.getPlayer());
             boolean foundBlock = false;
 
-            for (int i = 0; i <= positionClicked.getY(); i++) {
+            for (int i = 0; i <= positionClicked.getY() + 64; i++) {
                 Block blockBelow = context.getWorld().getBlockState(positionClicked.down(i)).getBlock();
 
                 if (isValuableBlock(blockBelow)) {
@@ -48,9 +48,13 @@ public class DowsingRodItem extends Item {
     private boolean isValuableBlock(Block block) {
         return block == Blocks.COAL_ORE || block == Blocks.IRON_ORE || block == Blocks.GOLD_ORE
                 || block == Blocks.REDSTONE_ORE || block == Blocks.LAPIS_ORE || block == Blocks.DIAMOND_ORE
-                || block == Blocks.EMERALD_ORE || block == Blocks.NETHER_QUARTZ_ORE || block == ModBlocks.RUBY_ORE
+                || block == Blocks.EMERALD_ORE || block == Blocks.NETHER_QUARTZ_ORE || block == Blocks.NETHER_GOLD_ORE || block == ModBlocks.RUBY_ORE
                 || block == ModBlocks.SAPPHIRE_ORE || block == ModBlocks.PERIDOT_ORE
-                || block == ModBlocks.ELECTROTINE_ORE;
+                || block == ModBlocks.ELECTROTINE_ORE || block == Blocks.DEEPSLATE_COAL_ORE || block == Blocks.DEEPSLATE_IRON_ORE || block == Blocks.DEEPSLATE_GOLD_ORE
+                || block == Blocks.DEEPSLATE_REDSTONE_ORE || block == Blocks.DEEPSLATE_LAPIS_ORE || block == Blocks.DEEPSLATE_DIAMOND_ORE
+                || block == Blocks.DEEPSLATE_EMERALD_ORE || block == ModBlocks.DEEPSLATE_RUBY_ORE
+                || block == ModBlocks.DEEPSLATE_SAPPHIRE_ORE || block == ModBlocks.DEEPSLATE_PERIDOT_ORE
+                || block == ModBlocks.DEEPSLATE_ELECTROTINE_ORE;
     }
 
     private void outputCoordinates(Block blockFound, BlockPos pos, PlayerEntity player) {
