@@ -12,7 +12,7 @@ import net.vanillaplusautomation.VanillaPlusAutomation;
 import net.vanillaplusautomation.item.custom.CustomAxeItem;
 import net.vanillaplusautomation.item.custom.CustomHoeItem;
 import net.vanillaplusautomation.item.custom.CustomPickaxeItem;
-import net.vanillaplusautomation.item.custom.DowsingRodItem;
+import net.vanillaplusautomation.item.custom.OreScannerItem;
 
 public class ModItems {
         // Items
@@ -35,8 +35,11 @@ public class ModItems {
                         new Item(new FabricItemSettings().group(ModItemGroup.VANILLA_PLUS_AUTOMATION)));
 
         // Tools
-        public static final Item DOWSING_ROD = registerItem("dowsing_rod", new DowsingRodItem(
-                        new FabricItemSettings().group(ModItemGroup.VANILLA_PLUS_AUTOMATION).maxDamage(10)));
+        public static final Item ORE_SCANNER = registerItem("ore_scanner", new OreScannerItem(
+                        new FabricItemSettings().group(ModItemGroup.VANILLA_PLUS_AUTOMATION).maxDamage(10), 64, 20));
+
+        public static final Item IMPROVED_ORE_SCANNER = registerItem("improved_ore_scanner", new OreScannerItem(
+                        new FabricItemSettings().group(ModItemGroup.VANILLA_PLUS_AUTOMATION).maxDamage(10), 128, 10));
 
         public static final Item RUBY_PICKAXE = registerItem("ruby_pickaxe",
                         new CustomPickaxeItem(ModToolMaterials.RUBY, 1, -2.8F,
@@ -140,6 +143,6 @@ public class ModItems {
         }
 
         public static void registerModItems() {
-                System.out.println("Registering mod items for " + VanillaPlusAutomation.MOD_ID);
+                VanillaPlusAutomation.LOGGER.debug("Registering mod items for " + VanillaPlusAutomation.MOD_ID);
         }
 }

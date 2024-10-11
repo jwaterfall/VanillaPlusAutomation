@@ -190,6 +190,6 @@ public class ModOres {
     }
 
     public static void registerModOres() {
-        System.out.println("Registering ores for " + VanillaPlusAutomation.MOD_ID);
+        VanillaPlusAutomation.LOGGER.debug("Registering ores for " + VanillaPlusAutomation.MOD_ID);
     }
 }
